@@ -14,8 +14,7 @@ body{background:#f0ebe0;color:#1a1714;font-family:'EB Garamond',Georgia,serif;li
 #cursor-ring{position:fixed;width:50px;height:50px;border:2px solid rgba(192,57,43,.65);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);box-shadow:0 0 0 1px rgba(255,255,255,.18);transition:width .25s,height .25s,border-color .25s}
 body.hovering #cursor{width:8px;height:8px;box-shadow:0 0 0 2px rgba(255,255,255,.8),0 2px 12px rgba(0,0,0,.3)}
 body.hovering #cursor-ring{width:64px;height:64px;border-color:rgba(192,57,43,.35)}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:22px 48px;transition:background .35s,backdrop-filter .35s,border-color .35s}
-nav.scrolled{background:rgba(240,235,224,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(26,23,20,.09)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:22px 48px;background:rgba(240,235,224,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(26,23,20,.09)}
 .nav-logo{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:#1a1714;text-decoration:none;opacity:.55}
 .nav-links{display:flex;align-items:center;gap:34px;list-style:none}
 .nav-links a{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:#1a1714;text-decoration:none;opacity:.5;transition:opacity .2s;position:relative}
@@ -273,10 +272,6 @@ document.querySelectorAll('.proj-card').forEach(card=>{
   card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(800px) rotateX(${-y*6}deg) rotateY(${x*6}deg) translateY(-6px) scale(1.01)`});
   card.addEventListener('mouseleave',()=>{card.style.transform=''});
 });
-const nav=document.querySelector('nav');
-const hero=document.getElementById('home');
-function onScroll(){if(window.scrollY>hero.offsetHeight*.82)nav.classList.add('scrolled');else nav.classList.remove('scrolled')}
-window.addEventListener('scroll',onScroll,{passive:true});
 </script>
 </body>
 </html>
